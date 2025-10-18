@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbastos- <bbastos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 11:36:12 by bbastos-          #+#    #+#             */
-/*   Updated: 2025/10/18 20:21:30 by bbastos-         ###   ########.fr       */
+/*   Created: 2025/10/18 15:48:45 by bbastos-          #+#    #+#             */
+/*   Updated: 2025/10/18 16:00:49 by bbastos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+int	ft_atoi(const char *str)
 {
-	unsigned int	i;
+	int	i;
+	int	num;
+	int	sin;
 
 	i = 0;
-	while (s[i] != '\0')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 	{
-		if (s[i] == c)
-			return ((char *)(s + i));
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)(s + i));
-	return (NULL);
+	sin = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sin *= -1;
+		i++;
+	}
+	num = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = (num * 10) + (str[i] - '0');
+		i++;
+	}
+	return (num * sin);
 }

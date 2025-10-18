@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbastos- <bbastos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 11:36:12 by bbastos-          #+#    #+#             */
-/*   Updated: 2025/10/18 20:21:30 by bbastos-         ###   ########.fr       */
+/*   Created: 2025/10/18 14:37:20 by bbastos-          #+#    #+#             */
+/*   Updated: 2025/10/18 20:22:16 by bbastos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	unsigned int	i;
+	const char		*last;
 
 	i = 0;
+	last = NULL;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			return ((char *)(s + i));
+		if (s[i] == (char)c)
+			last = &s[i];
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)(s + i));
-	return (NULL);
+	if (s[i] == (char)c)
+		last = &s[i];
+	return ((char *)last);
 }
