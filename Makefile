@@ -6,7 +6,7 @@
 #    By: bbastos- <bbastos-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/18 19:48:26 by bbastos-          #+#    #+#              #
-#    Updated: 2025/10/21 16:19:00 by bbastos-         ###   ########.fr        #
+#    Updated: 2025/10/22 09:23:29 by bbastos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,10 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c\
 
 OBJS = $(SRCS:.c=.o)
 
+SRCB = ft_lstnew_bonus.c
+
+OBJB = $(SRCB:.c=.o)
+
 all: $(NAME)
 
 %.o : %.c
@@ -47,4 +51,7 @@ fclean: clean
 	$(RM) $(NAME)
 re: fclean all
 
-.PHONY: all re clean fclean
+bonus: $(OBJS) $(OBJB)
+	ar rcs $(NAME) $(OBJS) $(OBJB)
+
+	.PHONY: all re clean fclean bonus

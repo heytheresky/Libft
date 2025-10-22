@@ -6,18 +6,25 @@
 /*   By: bbastos- <bbastos-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:38:15 by bbastos-          #+#    #+#             */
-/*   Updated: 2025/10/21 15:54:28 by bbastos-         ###   ########.fr       */
+/*   Updated: 2025/10/22 12:26:06 by bbastos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdio.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdint.h>
 # include <unistd.h>
 # include <limits.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalnum(int i);
 int		ft_isalpha(int c);
